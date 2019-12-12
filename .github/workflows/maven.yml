@@ -14,6 +14,8 @@ jobs:
       with:
         java-version: 1.8
     - name: Build Petclinic with Maven
-      run: mvn -B package --file petclinic/pom.xml
-    - name: Run Petclinic with Maven
-      run: nohup java -jar
+      run: mvn -B --file petclinic/pom.xml package
+    - name: Run Petclinic
+      run: nohup java -jar petclinic/target/petclinic-2.2.2.BUILD-SNAPSHOT.jar &
+    - name: Run the selenium tests
+      run: mvn -Dtest=PetclinicTest --file petclinic-selenium/pom.xml -Dbrowser=chrome -Dheadless=true test
