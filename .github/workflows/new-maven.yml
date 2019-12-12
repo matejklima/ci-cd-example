@@ -16,7 +16,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file petclinic/pom.xml
     - name: Run petclinic
-      run: java -jar petclinic/target/petclinic-2.2.2.BUILD-SNAPSHOT.jar
+      run: nohup java -jar petclinic/target/petclinic-2.2.2.BUILD-SNAPSHOT.jar
     - name: Install selenium
       run: mvn --file petclinic-selenium/pom.xml -DskipTests install
     - name: Run selenium tests
